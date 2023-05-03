@@ -56,32 +56,6 @@ Runs the experiment itself.
         plt.savefig(dim_name + ".png", dpi=200)
         # plt.show()
 
-    # dados_de_entrada_imu = read_csv("dataset-files/V1_01_easy/mav0/imu0/data.csv").to_numpy()[:, 1:]
-    # dados_de_saida = read_csv("dataset-files/V1_01_easy/mav0/state_groundtruth_estimate0/data.csv").to_numpy()[:, 1:]
-    #
-    # predict = []
-    # for i in tqdm(range(0, dados_de_entrada_imu.shape[0] - 200, 200)):
-    #     predict.append(
-    #         model(
-    #             torch.tensor(dados_de_entrada_imu[i:i + 200].reshape(-1, 200, 6), device=device, dtype=torch.float)
-    #         )
-    #     )
-    #
-    # predict = torch.cat(predict).detach().cpu().numpy()
-    # predict = np.cumsum(predict, axis=0)
-    #
-    # dimensoes = ["px", "py", "pz", "qw", "qx", "qy", "qz"]
-    # for i, dim_name in enumerate(dimensoes):
-    #     plt.close()
-    #     plt.plot(range(0, dados_de_saida.shape[0], dados_de_saida.shape[0] // predict.shape[0])[:predict.shape[0]], predict[:, i])
-    #     plt.plot(range(dados_de_saida.shape[0]), dados_de_saida[:, i])
-    #     plt.legend(['predict', 'reference'], loc='upper right')
-    #     plt.title(dim_name)
-    #     plt.savefig(dim_name + ".png", dpi=200)
-    #     # plt.show()
-
-    # ===========FIM-DE-PREDICAO-["px", "py", "pz", "qw", "qx", "qy", "qz"]=====
-
     print(model)
 
     return model
